@@ -1,28 +1,56 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <my-tree :treeData='treeData' />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Tree from "./components/my-tree/my-tree.vue";
 
 export default {
-  name: 'app',
+  name: "app",
+  data() {
+    return {
+      treeData: [
+        {
+          label: "1级菜单",
+          children: [
+            {
+              label: "2级菜单"
+            },
+            {
+              label: "2级菜单",
+              children: [
+                {
+                  label: "3级菜单"
+                },
+                {
+                  label: "3级菜单"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          label: "1级菜单",
+          children: [
+            {
+              label: "2级菜单"
+            },
+            {
+              label: "2级菜单"
+            }
+          ]
+        }
+      ]
+    };
+  },
   components: {
-    HelloWorld
+    "my-tree": Tree
   }
-}
+};
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
